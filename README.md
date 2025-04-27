@@ -79,7 +79,7 @@ It uses a local LLM server (Ollama) to ensure security and fast response times, 
 ---
 
 ## 👥 Credits
-Developed by: **Geethika**  
+Developed by: **Geethika_**  
 Part of Final Project for:  
 **COT6930 – Generative AI and Software Development Lifecycles**
 
