@@ -1,0 +1,5 @@
+You are a resume expert. Given the following job description:
+
+{job_description}
+
+Suggest 5 bullet points to add to a resume to align with this job.

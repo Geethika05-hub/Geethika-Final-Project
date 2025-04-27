@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto Interview Pro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Auto Interview Pro</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="#questions">Interview Questions</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tips">Interview Tips</a></li>
+        <li class="nav-item"><a class="nav-link" href="#practice">Practice Module</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resume">Resume Booster</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5">
+
+  <!-- Interview Questions Section -->
+  <section id="questions" class="mb-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white">
+        <h2>Generate Interview Questions</h2>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="row g-3">
+          <div class="col-md-6">
+            <input type="text" name="topic" class="form-control" placeholder="Enter Job Title or Topic" required>
+          </div>
+          <div class="col-auto">
+            <button type="submit" name="generate" class="btn btn-primary">Generate</button>
+          </div>
+          <div class="col-auto">
+            <button type="submit" name="export" class="btn btn-outline-secondary">Export CSV</button>
+          </div>
+        </form>
+        {% if questions %}
+        <div class="table-responsive mt-4">
+          <table class="table table-striped">
+            <thead><tr><th>Question</th><th>Type</th><th>Difficulty</th></tr></thead>
+            <tbody>
+            {% for q in questions %}
+              <tr><td>{{ q[0] }}</td><td>{{ q[1] }}</td><td>{{ q[2] }}</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Interview Tips Section -->
+  <section id="tips" class="mb-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white">
+        <h2>Most Common Tips</h2>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="mb-3">
+          <div class="mb-3">
+            <textarea name="job_description" class="form-control" placeholder="Paste Job Description here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" name="tips" class="btn btn-primary">Get Tips</button>
+        </form>
+        {% if tips %}
+        <ul class="list-group">
+          {% for tip in tips %}
+            <li class="list-group-item">{{ tip }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Practice Module Section -->
+  <section id="practice" class="mb-5">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white">
+        <h2>Practice Module</h2>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="row g-3 mb-3">
+          <div class="col-md-6">
+            <input type="text" name="topic_practice" class="form-control" placeholder="Enter Topic for Practice" required>
+          </div>
+          <div class="col-auto">
+            <button type="submit" name="practice" class="btn btn-primary">Start Practice</button>
+          </div>
+        </form>
+        {% if practice_questions %}
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead><tr><th>Question</th><th>Type</th><th>Difficulty</th></tr></thead>
+            <tbody>
+            {% for q in practice_questions %}
+              <tr><td>{{ q[0] }}</td><td>{{ q[1] }}</td><td>{{ q[2] }}</td></tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Resume Booster Section -->
+  <section id="resume">
+    <div class="card shadow-sm">
+      <div class="card-header bg-white">
+        <h2>Resume Booster</h2>
+      </div>
+      <div class="card-body">
+        <form method="POST" class="mb-3">
+          <div class="mb-3">
+            <textarea name="job_description_resume" class="form-control" placeholder="Paste Job Description here..." rows="4" required></textarea>
+          </div>
+          <button type="submit" name="resume" class="btn btn-primary">Generate Resume Points</button>
+        </form>
+        {% if resume_points %}
+        <ul class="list-group">
+          {% for point in resume_points %}
+            <li class="list-group-item">{{ point }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

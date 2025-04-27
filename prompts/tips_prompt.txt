@@ -1,0 +1,5 @@
+You are an expert career coach. Given the following job description:
+
+{job_description}
+
+List 5 key things a candidate should keep in mind during the interview for this role.

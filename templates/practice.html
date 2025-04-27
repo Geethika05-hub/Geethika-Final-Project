@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card shadow-sm mb-5">
+    <div class="card-header bg-white">
+      <h2>Practice Module</h2>
+    </div>
+    <div class="card-body">
+      <form method="POST" class="row g-3 mb-3">
+        <div class="col-md-6">
+          <input type="text" name="topic_practice" class="form-control" placeholder="Enter Topic for Practice" required>
+        </div>
+        <div class="col-auto">
+          <button type="submit" name="practice" class="btn btn-primary">Start Practice</button>
+        </div>
+      </form>
+      {% if practice_questions %}
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead><tr><th>Question</th><th>Type</th><th>Difficulty</th></tr></thead>
+          <tbody>
+          {% for q in practice_questions %}
+            <tr><td>{{ q[0] }}</td><td>{{ q[1] }}</td><td>{{ q[2] }}</td></tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

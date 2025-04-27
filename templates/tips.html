@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="card shadow-sm mb-5">
+    <div class="card-header bg-white">
+      <h2>Most Common Tips</h2>
+    </div>
+    <div class="card-body">
+      <form method="POST" class="mb-3">
+        <div class="mb-3">
+          <textarea name="job_description" class="form-control" placeholder="Paste Job Description here..." rows="4" required></textarea>
+        </div>
+        <button type="submit" name="tips" class="btn btn-primary">Get Tips</button>
+      </form>
+      {% if tips %}
+      <ul class="list-group">
+        {% for tip in tips %}
+          <li class="list-group-item">{{ tip }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
